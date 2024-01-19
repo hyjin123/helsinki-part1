@@ -1,10 +1,11 @@
 import React from "react";
 
 function Content(props) {
+  // console.log(props);
   return (
     <>
       <p>
-        {props.part} {props.exercises}
+        {props.part.name} {props.part.exercises}
       </p>
     </>
   );
