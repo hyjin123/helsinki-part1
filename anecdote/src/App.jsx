@@ -13,6 +13,9 @@ const App = () => {
   ];
 
   const [selected, setSelected] = useState(0);
+  const [points, setPoints] = useState(Array(8).fill(0));
+
+  console.log(points);
 
   const getRandomNumber = () => {
     const randomNumber = Math.floor(Math.random() * 8);
@@ -20,9 +23,22 @@ const App = () => {
     setSelected(randomNumber);
   };
 
+  const handleVote = () => {
+    // create a copy of the points array
+    const copy = [...points];
+
+    // add a point if user votes
+    copy[selected] += 1;
+
+    // set the state with the new copy of the array
+    setPoints(copy);
+  };
+
   return (
     <>
       <div>{anecdotes[selected]}</div>
+      <div>has {points[selected]} votes</div>
+      <button onClick={handleVote}>vote</button>
       <button onClick={getRandomNumber}>next anecdote</button>
     </>
   );
