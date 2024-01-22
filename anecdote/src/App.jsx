@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Anecdote from "./components/Anecdote";
+import Button from "./components/Button";
 
 const App = () => {
   const anecdotes = [
@@ -46,15 +48,19 @@ const App = () => {
 
   return (
     <>
-      <h1>Anecdote of the day</h1>
-      <div>{anecdotes[selected]}</div>
-      <div>has {points[selected]} votes</div>
-      <button onClick={handleVote}>vote</button>
-      <button onClick={getRandomNumber}>next anecdote</button>
+      <Anecdote
+        heading="Anecdote of the day"
+        anecdotes={anecdotes[selected]}
+        points={points[selected]}
+      />
+      <Button text="vote" onClick={handleVote} />
+      <Button text="next anecdote" onClick={getRandomNumber} />
 
-      <h1>Anecdote with the most votes</h1>
-      <div>{anecdotes[mostVotedPosition]}</div>
-      <div>has {mostVoted} votes</div>
+      <Anecdote
+        heading="Anecdote with the most votes"
+        anecdotes={anecdotes[mostVotedPosition]}
+        points={points[mostVotedPosition]}
+      />
     </>
   );
 };
