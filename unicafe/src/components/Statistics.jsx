@@ -1,4 +1,5 @@
 import React from "react";
+import StatisticLine from "./StatisticLine";
 
 function Statistics({ good, neutral, bad }) {
   const positive = (good / (good + neutral + bad)) * 100;
@@ -13,12 +14,12 @@ function Statistics({ good, neutral, bad }) {
   return (
     <>
       <h1>Statistics</h1>
-      <p>good - {good}</p>
-      <p>neutral - {neutral}</p>
-      <p>bad - {bad}</p>
-      <p>all - {total}</p>
-      <p>average - {average}</p>
-      <p>positive - {positive} %</p>
+      <StatisticLine text="good" stat={good} />
+      <StatisticLine text="neutral" stat={neutral} />
+      <StatisticLine text="bad" stat={bad} />
+      <StatisticLine text="all" stat={total} />
+      <StatisticLine text="average" stat={average} />
+      <StatisticLine text="positive" stat={positive} extraText="%" />
     </>
   );
 }
