@@ -7,6 +7,9 @@ function Statistics({ good, neutral, bad }) {
   const score = good * 1 + bad * -1;
   const average = score / total;
 
+  if (total === 0) {
+    return <div>No Feedback is given</div>;
+  }
   return (
     <>
       <h1>Statistics</h1>
